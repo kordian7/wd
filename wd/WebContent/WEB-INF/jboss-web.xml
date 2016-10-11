@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>wd</context-root>
+</jboss-web>
