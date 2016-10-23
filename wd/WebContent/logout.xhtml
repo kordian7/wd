@@ -9,13 +9,11 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
     <h:head>
-    	<title>PF Hello World</title>
+    	<title>Home</title>
     </h:head>
     <h:body bgcolor="white">
-    	<h:form id="test">
-    	   <h:inputText value="#{helloBean.name}"></h:inputText>
-    	   <p:commandButton value="Welcome Me" update="test" ></p:commandButton>
-    	   <h2>Welcome #{helloBean.name}!!!</h2>
+    	<h:form id="home">
+    	   <h:outputText value="Zalogowany jako: #{loginBean.username}" />
     	</h:form>
     </h:body>
 </html>
