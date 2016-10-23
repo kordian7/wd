@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-10-23 16:00:47 by Hibernate Tools 5.1.0.Beta1 -->
+<hibernate-mapping package="com.kordian.domain">
+    <class name="User" table="user" catalog="kokurd" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="100" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="100" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" length="100" />
+        </property>
+        <property name="hashedPwd" type="string">
+            <column name="hashed_pwd" length="100" />
+        </property>
+        <!--
+        <set name="userRoles" table="user_role" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="UserRole" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>
