@@ -2,6 +2,7 @@ package com.kordian.common;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -18,9 +19,11 @@ public class LoginBean {
 	// TODO - injecty
 	UserDAO userDao = new UserDAOImpl();
 	
+	@ManagedProperty(value="#{userSessionBean}")
+	private UserSessionBean userSessionBean;
+	
 	private String username;
 	private String password;
-	private String userrole;
 	
 	
 	public String login() {
@@ -30,6 +33,7 @@ public class LoginBean {
 			session.setAttribute("username", username);
 			// TODO - session.setAttribute("userid", userid);
 			// TODO - session.setAttribute("userrole", userrole);
+			userSessionBean.setUsername(username);
 			
 			return "home?faces-redirect=true";
 		} else {
@@ -54,9 +58,19 @@ public class LoginBean {
 	
 	// getters and setters
 	
+	
+	public UserSessionBean getUserSessionBean() {
+		return userSessionBean;
+	}
+
+	public void setUserSessionBean(UserSessionBean userSessionBean) {
+		this.userSessionBean = userSessionBean;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -65,11 +79,5 @@ public class LoginBean {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getUserrole() {
-		return userrole;
-	}
-	public void setUserrole(String userrole) {
-		this.userrole = userrole;
 	}
 }

@@ -8,15 +8,23 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
-
 <h:body>
-	<ui:composition
-		template="/WEB-INF/protElements/templates/template.xhtml">
-		<ui:define name="content">
-			<h:form id="home">
-				<h:outputText value="Witaj #{userSessionBean.username}" />
-			</h:form>
-		</ui:define>
+	<ui:composition>
+		<h:form id="headerForm">
+			<p:panelGrid style="width:100%">
+				<p:row style="background-color: #8bc34a">
+					<p:column>
+						<h:outputText  value="Zalogowany jako: #{userSessionBean.username}" />
+					</p:column>
+					<p:column style="width: 100px;">
+						<p:commandButton action="#{loginBean.logout}" value="Logout" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+			
+			
+		</h:form>
 	</ui:composition>
+
 </h:body>
 </html>
