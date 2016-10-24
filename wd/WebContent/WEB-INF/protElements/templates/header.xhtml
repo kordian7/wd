@@ -17,6 +17,9 @@
 						<h:outputText  value="Zalogowany jako: #{userSessionBean.username}" />
 					</p:column>
 					<p:column style="width: 100px;">
+						<p:commandButton action="home?faces-redirect=true" value="Home" />
+					</p:column>
+					<p:column style="width: 100px;">
 						<p:commandButton action="#{loginBean.logout}" value="Logout" />
 					</p:column>
 				</p:row>
